@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.python-version
+
+# Environments
+.env
+.env.*
+.venv/
+venv/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.coverage*
+
+# Editors/OS
+.DS_Store
+.idea/
+.vscode/
+
+# Node (if present)
+node_modules/
+
+# Local workspace folder (not part of repo)
+workspace/

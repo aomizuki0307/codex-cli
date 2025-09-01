@@ -1,0 +1,52 @@
+# Docker Compose設定ファイル
+
+services:
+  codex-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - TZ=Asia/Tokyo
+    container_name: codex-cli-container
+    working_dir: /workspace
+    volumes:
+      - ./workspace:/workspace
+      - codex-config:/root/.codex
+      - ~/.codex:/root/.codex:ro  # ホストの設定をマウント（読み取り専用）
+    environment:
+      - CODEX_UNSAFE_ALLOW_NO_SANDBOX=1
+      - NODE_ENV=development
+      - TZ=Asia/Tokyo
+    stdin_open: true
+    tty: true
+    ports:
+      - "1455:1455"  # Codex認証用ポート
+    networks:
+      - codex-network
+
+  # codex-universalベースの開発環境
+  codex-universal:
+    image: ghcr.io/openai/codex-universal:latest
+    container_name: codex-universal-container
+    working_dir: /workspace
+    volumes:
+      - ./workspace:/workspace
+      - codex-config:/root/.codex
+    environment:
+      - CODEX_ENV_PYTHON_VERSION=3.12
+      - CODEX_ENV_NODE_VERSION=20
+      - CODEX_UNSAFE_ALLOW_NO_SANDBOX=1
+    stdin_open: true
+    tty: true
+    ports:
+      - "1456:1455"  # 別のポートを使用
+    networks:
+      - codex-network
+
+volumes:
+  codex-config:
+    driver: local
+
+networks:
+  codex-network:
+    driver: bridge
