@@ -1,4 +1,6 @@
 # OpenAI Codex CLI Docker Environment
+[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
+<!-- Replace OWNER/REPO above with your GitHub org/user and repository name -->
 
 Docker を使用した OpenAI Codex CLI の開発環境です。
 
