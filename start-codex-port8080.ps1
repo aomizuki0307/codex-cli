@@ -20,10 +20,10 @@ $containerId = docker run -d `
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ コンテナ起動成功（ポート8080）" -ForegroundColor Green
-    
+
     # Codex CLIインストール
     docker exec codex-cli-session bash -c "source /root/.nvm/nvm.sh && nvm use 20 && npm install -g @openai/codex"
-    
+
     Write-Host ""
     Write-Host "🔐 認証手順（ESET対応）:" -ForegroundColor Cyan
     Write-Host ""

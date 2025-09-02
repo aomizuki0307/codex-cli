@@ -39,7 +39,7 @@ if [[ -f "$HOME/.codex/auth.json" ]]; then
     echo "   $HOME/.codex/auth.json"
     echo ""
     read -p "既存の認証情報をリセットしますか？ (y/N): " reset_auth
-    
+
     if [[ $reset_auth =~ ^[Yy]$ ]]; then
         rm -f "$HOME/.codex/auth.json"
         echo "✅ 既存の認証情報をリセットしました。"
@@ -91,13 +91,13 @@ while [[ $AUTH_SUCCESS == false ]]; do
     # タイムアウトチェック
     CURRENT_TIME=$(date +%s)
     ELAPSED=$((CURRENT_TIME - START_TIME))
-    
+
     if [[ $ELAPSED -gt $TIMEOUT ]]; then
         echo ""
         echo "⏰ タイムアウトしました（${TIMEOUT}秒）。認証を手動で確認してください。"
         break
     fi
-    
+
     # 認証ファイルの存在確認
     if [[ -f "$HOME/.codex/auth.json" ]]; then
         echo ""
@@ -105,7 +105,7 @@ while [[ $AUTH_SUCCESS == false ]]; do
         AUTH_SUCCESS=true
         break
     fi
-    
+
     echo -n "."
     sleep 5
 done

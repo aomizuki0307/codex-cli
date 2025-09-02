@@ -21,15 +21,15 @@ $containerId = docker run -d `
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ コンテナ起動成功（ポート転送: localhost:1455）" -ForegroundColor Green
     Write-Host ""
-    
+
     # Node環境のセットアップとCodex CLIインストール
     Write-Host "📦 Codex CLIをインストール中..." -ForegroundColor Yellow
     docker exec codex-cli-session bash -c "source /root/.nvm/nvm.sh && nvm use 20 && npm install -g @openai/codex"
-    
+
     if ($LASTEXITCODE -eq 0) {
         Write-Host "✅ Codex CLIインストール完了" -ForegroundColor Green
         Write-Host ""
-        
+
         # 認証開始
         Write-Host "🔐 認証を開始します..." -ForegroundColor Cyan
         Write-Host "以下のコマンドを実行して認証を完了してください:" -ForegroundColor White
