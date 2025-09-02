@@ -153,3 +153,5 @@ find ./workspace -name "*.py" -exec codex "コメントを追加" {} \;
 ## ライセンス
 
 このDocker設定はApache-2.0ライセンスです。OpenAI Codex CLIは独自のライセンスに従います。
+
+
