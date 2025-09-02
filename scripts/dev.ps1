@@ -11,7 +11,7 @@ switch ($task) {
   }
   "fmt"  { ruff --fix .; black . }
   "lint" { ruff . }
-  "test" { pytest -q }
+  "test" { $env:PYTHONPATH = "."; pytest -q }
   "pc"   { pre-commit run -a --show-diff-on-failure }
   default {
     Write-Host "tasks: venv | fmt | lint | test | pc"
