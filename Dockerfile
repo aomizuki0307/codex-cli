@@ -6,7 +6,7 @@ ARG TZ=Asia/Tokyo
 ENV TZ=${TZ}
 
 # 必要なパッケージのインストール（公式Dockerfileに基づく）
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     wget \
@@ -22,8 +22,9 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     python3 \
     python3-pip \
+    python3-venv \
     openssh-client \
-    && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/*
 
 # タイムゾーン設定
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

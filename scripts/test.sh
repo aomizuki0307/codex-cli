@@ -7,4 +7,3 @@ if [[ ! -x ".venv/bin/python" ]]; then
 fi
 
 exec .venv/bin/python -m pytest -q --cov=. --cov-report=term-missing
-
