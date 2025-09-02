@@ -1,0 +1,12 @@
+[tool.black]
+line-length = 88
+target-version = ["py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-select = ["I"]  # import 並べ替え
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
