@@ -9,7 +9,7 @@ switch ($task) {
     & .\.venv\Scripts\python.exe -m pip install -U pip
     & .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
   }
-  "fmt"  { ruff --fix .; black . }
+  "fmt"  { ruff check --fix .; black . }
   "lint" { ruff . }
   "test" { $env:PYTHONPATH = "."; pytest -q }
   "pc"   { pre-commit run -a --show-diff-on-failure }
